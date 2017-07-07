@@ -614,27 +614,41 @@ customize the resulting theme."
      `(custom-button-unraised ((,class (:inherit underline))))
      `(custom-button-pressed-unraised ((,class (:inherit custom-button-unraised :foreground ,magenta))))
 ;;;;; diff
-     `(diff-added   ((,class (:foreground ,green))))
-     `(diff-changed ((,class (:foreground ,blue))))
-     `(diff-removed ((,class (:foreground ,red))))
+     `(diff-context
+       ((,class (:foreground ,base0))))
+     `(diff-added
+       ((((class color) (background light))
+	 (:background ,(solarized-color-blend "#ddffdd" green 1.0)))
+	(((class color) (background dark))
+	 (:background ,(solarized-color-blend "#446644" green 1.0)))))
+     `(diff-changed
+       ((((class color) (background light))
+	 (:background ,(solarized-color-blend "#ddddff" blue 1.0)))
+	(((class color) (background dark))
+	 (:background ,(solarized-color-blend "#444466" blue 1.0)))))
+     `(diff-removed
+       ((((class color) (background light))
+	 (:background ,(solarized-color-blend "#ffdddd" red 1.0)))
+	(((class color) (background dark))
+	 (:background ,(solarized-color-blend "#664444" red 1.0)))))
      `(diff-refine-added
        ((((class color) (background light))
-         (:background ,(solarized-color-blend "#ddffdd" green 0.7)))
+         (:background ,(solarized-color-blend "#ddffdd" green 0.8)))
         (((class color) (background dark))
-         (:background ,(solarized-color-blend "#446644" green 0.7)))))
+         (:background ,(solarized-color-blend "#446644" green 0.8)))))
      `(diff-refine-changed
        ((((class color) (background light))
-         (:background ,(solarized-color-blend "#ddddff" blue 0.7)))
+         (:background ,(solarized-color-blend "#ddddff" blue 0.8)))
         (((class color) (background dark))
-         (:background ,(solarized-color-blend "#444466" blue 0.7)))))
+         (:background ,(solarized-color-blend "#444466" blue 0.8)))))
      `(diff-refine-removed
        ((((class color) (background light))
-         (:background ,(solarized-color-blend "#ffdddd" red 0.7)))
+         (:background ,(solarized-color-blend "#ffdddd" red 0.8)))
         (((class color) (background dark))
-         (:background ,(solarized-color-blend "#664444" red 0.7)))))
-     `(diff-header  ((,class (:background ,base03))))
+         (:background ,(solarized-color-blend "#664444" red 0.8)))))
+     `(diff-header  ((,class (:background ,base02))))
      `(diff-file-header
-       ((,class (:background ,base03 :foreground ,base0 :weight bold))))
+       ((,class (:background ,base02 :foreground ,base0 :weight bold))))
 ;;;;; ediff
      `(ediff-fine-diff-A ((,class (:background ,orange-lc))))
      `(ediff-fine-diff-B ((,class (:background ,green-lc))))
